@@ -20,7 +20,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 // routes
 app.use(require("./routes/api.js"));
 
-// need get routes for html
+// get routes for html
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname + "/public/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
