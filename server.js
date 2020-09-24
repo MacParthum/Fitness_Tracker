@@ -15,20 +15,22 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.use(require("./routes/htmlRoutes.js"));
-app.use(require("./routes/apiRoutes"));
+app.use(require("./controller/html-controller.js"));
+app.use(require("./controller/api-controller"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true, 
 
-useNewUrlParser: true,
+
 useUnifiedTopology: true,
 useCreateIndex: true,
 useFindAndModify: false,
 
 });
 
-
-
+app.use(require(""))
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}!`);
+});
 
 
 
