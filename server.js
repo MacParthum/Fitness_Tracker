@@ -1,30 +1,51 @@
 const express = require("express");
+const logger = require("morgan");
 const mongoose = require("mongoose");
-const morgan = require("morgan");
-const path = require("path");
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
+
+const db = require("./models");
 
 const app = express();
+// using morgan
+app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
-  useNewUrlParser: true,
-  useFindAndModify: false
+app.use(require("./routes/htmlRoutes.js"));
+app.use(require("./routes/apiRoutes"));
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true, 
+
+useNewUrlParser: true,
+useUnifiedTopology: true,
+useCreateIndex: true,
+useFindAndModify: false,
+
 });
 
-// routes
-app.use(require("./routes/api.js"));
 
-// get routes for html
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/index.html"));
-});
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
-});
+
+
+
+
+
+
+// https://mongoosejs.com/docs/connections.html
+// const options = {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//     autoIndex: false, // Don't build indexes
+//     poolSize: 10, // Maintain up to 10 socket connections
+//     serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
+//     socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+//     family: 4 // Use IPv4, skip trying IPv6
+//   };
+//   mongoose.connect(uri, options);
+

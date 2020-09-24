@@ -17,14 +17,14 @@ const workoutSchema = new Schema({
 
 
 
-      name String
+      // name String
 
-      
-      duration number
-      weight number default 0
-      reps number
-      sets number
-      distance number
+
+      // duration number
+      // weight number default 0
+      // reps number
+      // sets number
+      // distance number
 
 
 
