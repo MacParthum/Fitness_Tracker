@@ -9,7 +9,7 @@ router.get("/api/workouts", (req,res) => {
 })
 
 router.get("/api/workouts/range", (req,res) => {
-    Workout.find().limit(7)
+    Workout.find({}).limit(7)
     .then(workouts=> res.json(workouts))
     .catch(err => res.json(err))
 })
