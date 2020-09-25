@@ -9,15 +9,15 @@ router.get("/api/workouts", (req,res) => {
 })
 
 router.get("/api/workouts/range", (req,res) => {
-    Workout.find({}).limit(7)
+    Workout.find().limit(7)
     .then(workouts=> res.json(workouts))
     .catch(err => res.json(err))
 })
 
-router.post("/api/workouts", (req,res) => {
+router.post("/api/workouts", (req,res)=> {
     Workout.create({})
-    .then(workout => res.json(workout))
-    .catch(err=> res.json(err))
+    .then(workout=> res.json(workout))
+    .catch(err => res.json(err))
 })
 
 router.put("/api/workouts/:id", (req,res)=> {
