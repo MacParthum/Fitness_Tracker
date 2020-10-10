@@ -7,7 +7,7 @@ This intricately coded fitness tracker allows you to add cardio or resistance ex
 https://github.com/MacParthum/Fitness_Tracker
 
 ## Heroku Deployed App
-https://tranquil-lowlands-19905.herokuapp.com/?id=5f6d537a4355c50017e35920
+https://mac-fitness-tracker.herokuapp.com/?id=5f773ae58a3cbf00177de8e6
 
 
 ## Image of Deployed Site
